@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products | Case & Connect</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+Products | Case & Connect Wholesalers
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
     <h1>Our Products</h1>
 
     {% for product in products %}
-        <div>
-            <h2>{{ product.name }}</h2>
-            <p>{{ product.description }}</p>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h2 class="card-title">{{ product.name }}</h2>
+            <p class="card-text">{{ product.description }}</p>
             <p>Price: £{{ product.price }}</p>
             <p>Stock: {{ product.stock }}</p>
         </div>
+    </div>
     {% empty %}
-        <p>No products available yet.</p>
+    <p>No products available yet.</p>
     {% endfor %}
-</body>
-</html>
+</div>
+{% endblock %}
