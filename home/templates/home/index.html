@@ -5,8 +5,55 @@ Home | Case & Connect Wholesalers
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1>Welcome to Case & Connect Wholesalers</h1>
-    <p>Your one-stop shop for wholesale tech accessories.</p>
-</div>
+
+<section class="container mt-5">
+    <div class="row">
+
+        <!-- Left Hero Box -->
+        <div class="col-lg-6 mb-4">
+            <div class="hero-section h-100">
+                <p class="text-uppercase">
+                    Built for independent retailers
+                </p>
+
+                <h1 class="display-3 fw-bold">
+                    Stock smart.<br>
+                    Sell fast.
+                </h1>
+
+                <p class="mt-4">
+                    Reliable tech accessories and a simpler
+                    ordering experience for independent retailers.
+                </p>
+
+                <a href="{% url 'product_list' %}" class="btn btn-light mt-3">
+                    Browse wholesale range
+                </a>
+            </div>
+        </div>
+        <!-- Right Hero Box -->
+        <div class="col-lg-6 mb-4">
+            <div class="hero-product h-100">
+                <span class="badge bg-white text-dark">
+                    NEW RANGE
+                </span>
+
+                <!-- Phone Case Illustration -->
+                <div class="product-stage">
+                    <div class="product-phone">
+                        <div class="phone-camera"></div>
+                        <div class="phone-ring"></div>
+                    </div>
+
+                </div>
+
+                <div class="hero-product-content">
+                    <p class="text-uppercase">The essentials edit</p>
+                    <h2>Everyday bestsellers</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

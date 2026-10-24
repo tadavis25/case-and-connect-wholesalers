@@ -1,0 +1,86 @@
+.hero-section {
+    background-color: #4169E1;
+    color: white;
+    padding: 60px 40px;
+}
+
+.hero-product {
+    background-color: #e8e8e8;
+    padding: 30px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-product .badge {
+    align-self: flex-end;
+}
+
+.hero-product-content h2 {
+    font-weight: bold;
+}
+
+.product-phone {
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    width: min(38%, 160px);
+    aspect-ratio: 0.52;
+    border: 3px solid #171717;
+    border-radius: 32px;
+    background: #f7f7f7;
+    box-shadow: inset 0 0 0 9px #171717,
+                24px 28px 0 rgb(0 0 0 / 0.12);
+    transform: rotate(8deg);
+}
+
+.product-stage {
+    position: relative;
+    flex: 1;
+    min-height: 350px;
+}
+
+.phone-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45%;
+    aspect-ratio: 1;
+    border: 3px solid #171717;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.phone-camera {
+    position: absolute;
+    top: 8%;
+    left: 12%;
+    width: 28%;
+    aspect-ratio: 1;
+    border: 2px solid #171717;
+    border-radius: 12px;
+    background-color: #f7f7f7;
+}
+
+.phone-camera::before,
+.phone-camera::after {
+    content: "";
+    position: absolute;
+    background-color: #171717;
+    border-radius: 50%;
+}
+
+.phone-camera::before {
+    width: 35%;
+    height: 35%;
+    top: 18%;
+    left: 18%;
+}
+
+.phone-camera::after {
+    width: 20%;
+    height: 20%;
+    bottom: 18%;
+    right: 18%;
+}
