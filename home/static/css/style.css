@@ -84,3 +84,37 @@
     bottom: 18%;
     right: 18%;
 }
+
+.product-charger {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    width: 65px;
+    height: 85px;
+    background-color: #ffffff;
+    border: 2px solid #171717;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-12deg);
+}
+
+.product-charger span {
+    font-size: 35px;
+    color: #171717;
+}
+
+.product-grip {
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    border: 2px solid #171717;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
