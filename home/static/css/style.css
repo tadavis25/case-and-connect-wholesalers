@@ -118,3 +118,24 @@
     align-items: center;
     justify-content: center;
 }
+
+.category-card {
+    border: 1px solid #d5d5d5;
+    background-color: #ffffff;
+}
+
+.category-icon {
+    background-color: #e8e8e8;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+}
+
+.category-title {
+    padding: 18px 15px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
