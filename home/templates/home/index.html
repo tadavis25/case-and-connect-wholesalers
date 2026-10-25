@@ -131,6 +131,9 @@ Home | Case & Connect Wholesalers
                     </div>
                     <div class="category-title">
                         <h3 class="h6 fw-bold">{{ product.name }}</h3>
+                        <a href="{% url 'product_detail' product.id %}" class="text-dark">
+                            View Details
+                        </a>
                         <p class="mb-1">£{{ product.price }}</p>
                         <p class="small mb-0">
                             Stock: {{ product.stock }}
