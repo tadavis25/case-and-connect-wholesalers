@@ -4,8 +4,12 @@
 <div class="container my-5">
     <div class="row g-4">
         <div class="col-md-6">
-            <div class="bg-light p-5 text-center">
+            <div class="bg-light p-4 text-center">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded">
+                {% else %}
                 <span class="display-1">📱</span>
+                {% endif %}
             </div>
         </div>
 
@@ -24,10 +28,13 @@
                     class="form-control" style="max-width: 120px;">
             </div>
 
-            <button type="button" class="btn btn-dark">
-                Add to Order
-            </button>
-            </div>
-          </div>
+            <form action="{% url 'add_to_bag' product.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-dark">
+                    Add to Order
+                </button>
+            </form>
         </div>
-        {% endblock %}
+    </div>
+</div>
+{% endblock %}

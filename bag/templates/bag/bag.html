@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4">Your Shopping Bag</h1>
+
+    {% if bag_items %}
+    {% for item in bag_items %}
+    <div class="mb-4">
+        <h3>{{ item.product.name }}</h3>
+        <p>Price: £{{ item.product.price }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Subtotal: £{{ item.subtotal }}</p>
+        <form method="POST" action="{% url 'remove_from_bag' item.product.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger btn-sm mt-2">
+                Remove
+            </button>
+        </form>
+    </div>
+    {% endfor %}
+
+    <hr>
+    <h3>Total: £{{ total }}</h3>
+
+    {% else %}
+    <p>Your shopping bag is currently empty.</p>
+    {% endif %}
+
+    <a href="{% url 'product_list' %}" class="btn btn-dark mt-3">
+        Continue Shopping
+    </a>
+</div>
+{% endblock %}
