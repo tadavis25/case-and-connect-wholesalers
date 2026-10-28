@@ -51,3 +51,23 @@ def remove_from_bag(request, product_id):
             request.session['bag'] = bag
 
     return redirect('view_bag')
+
+
+def update_bag(request, product_id):
+    if request.method == 'POST':
+        bag = request.session.get('bag', {})
+        product_id = str(product_id)
+
+        product = get_object_or_404(Product, pk=product_id)
+
+        try:
+            quantity = int(request.POST.get('quantity', 1))
+        except (ValueError, TypeError):
+            return redirect('view_bag')
+
+        if product_id in bag:
+            if 1 <= quantity <= product.stock:
+                bag[product_id] = quantity
+                request.session['bag'] = bag
+
+    return redirect('view_bag')
