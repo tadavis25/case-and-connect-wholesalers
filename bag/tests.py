@@ -91,3 +91,5 @@ class BagTests(TestCase):
 
         bag_items = response.context['bag_items']
         self.assertEqual(bag_items[0]['subtotal'], Decimal('17.97'))
+
+        

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4">Checkout</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="h4 mb-3">Delivery Details</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary">
+                    Continue to Payment
+                </button>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <h2 class="h4 mb-3">Order Summary</h2>
+
+            {% if bag_items %}
+            {% for item in bag_items %}
+            <div class="mb-3">
+                <h3 class="h6">{{ item.product.name }}</h3>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Subtotal: £{{ item.subtotal|floatformat:2 }}</p>
+            </div>
+            <hr>
+            {% endfor %}
+
+            <h4>Total: £{{ total|floatformat:2 }}</h4>
+            {% else %}
+            <p>Your shopping bag is empty.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
