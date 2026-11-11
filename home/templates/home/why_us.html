@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Why Us | Case & Connect Wholesalers
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Wholesale made straightforward.</h1>
+    <p class="lead">
+        We help independent retailers stock useful,
+        dependable tech accessories without
+        unnecessary complexity.
+    </p>
+
+    <div class="row g-4 mt-4">
+        <div class="col-12 col-md-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <h3>Reliable Products</h3>
+                    <p>
+                        A focused range of practical accessories
+                        your customers can use every day.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <h3>Simple Ordering</h3>
+                    <p>
+                        A clear online experience for browsing
+                        products and managing wholesale orders.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <h3>Helpful Support</h3>
+                    <p>
+                        Straightforward support when you need
+                        help with products, orders, or your account.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-dark text-white p-5 mt-5">
+        <h2 class="display-5 fw-bold">
+            Ready to get started?
+        </h2>
+        <p class="mt-3">
+            Create your trade account and start building
+            your first order.
+        </p>
+
+        <a href="{% url 'account_signup' %}" class="btn btn-light mt-3">
+             Open a trade account &rarr;
+        </a>
+    </div>
+</div>
+{% endblock %}

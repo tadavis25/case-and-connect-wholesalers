@@ -150,3 +150,9 @@
     height: 180px;
     object-fit: contain;
 }
+
+.card-img-top {
+    height: 220px;
+    object-fit: contain;
+    padding: 10px;
+}

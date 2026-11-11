@@ -43,6 +43,8 @@ def checkout(request):
 
         if order is None:
             order = form.save(commit=False)
+            if request.user.is_authenticated:
+                order.user = request.user
             order.order_total = total
             order.save()
             request.session['pending_order_id'] = order.id
