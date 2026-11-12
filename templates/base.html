@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{% block title %}Case & Connect Wholesalers{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'images/icons8-mobile-charger-48.png' %}">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,11 +26,15 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
-            <a class="navbar-brand d-flex flex-column" href="{% url 'home' %}">
-                <span class="fw-bold">CASE & CONNECT</span>
-                <small class="text-muted" style="font-size: 10px; letter-spacing: 3px;">
-                    WHOLESALERS
-                </small>
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                <img src="{% static 'images/icons8-mobile-charger-48.png' %}" alt="" width="32" height="32"
+                    class="me-2">
+                <div class="d-flex flex-column">
+                    <span class="fw-bold">CASE & CONNECT</span>
+                    <small class="text-muted" style="font-size: 10px; letter-spacing: 3px;">
+                        WHOLESALERS
+                    </small>
+                </div>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -100,15 +105,18 @@
 
                     <!-- Social Media Icons -->
                     <div class="d-flex gap-3 mt-3">
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-white fs-4" aria-label="Instagram">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-white fs-4" aria-label="Instagram">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
 
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-white fs-4" aria-label="Facebook">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-white fs-4" aria-label="Facebook">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
 
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="text-white fs-4" aria-label="Linkedin">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-white fs-4" aria-label="Linkedin">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                     </div>
