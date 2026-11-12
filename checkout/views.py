@@ -48,6 +48,15 @@ def checkout(request):
             order.order_total = total
             order.save()
             request.session['pending_order_id'] = order.id
+
+            for product_id, quantity in bag.items():
+                product = get_object_or_404(Product, pk=product_id)
+
+            OrderLineItem.objects.create(
+                order=order,
+                product=product,
+                quantity=quantity
+            )
     else:
         order = None
 
@@ -77,16 +86,25 @@ def checkout(request):
 
 
 def checkout_success(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
     payment_intent_id = request.GET.get('payment_intent')
     payment_confirmed = False
+    order = None
 
     if payment_intent_id:
+        try:
+            intent = stripe.PaymentIntent.retrieve(payment_intent_id)
+        except stripe.error.StripeError:
+            intent = None
         order = Order.objects.filter(
             stripe_payment_intent_id=payment_intent_id,
-            payment_status=True
-        ).first()
+        ).first()      
+        if order and intent and intent.status == 'succeeded':
+            if intent.currency == 'gbp' and intent.amount == int(order.order_total * 100):
+                order.payment_status = True
+                order.save(update_fields=['payment_status'])
 
-        if order:
+        if order and order.payment_status:
             payment_confirmed = True
             request.session.pop('bag', None)
             request.session.pop('pending_order_id', None)

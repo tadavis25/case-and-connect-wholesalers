@@ -11,6 +11,26 @@
         <h3 class="h5 mt-3">Account Details</h3>
         <p><strong>Username:</strong> {{ user.username }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
+        <h3 class="h5 mt-4">Order History</h3>
+
+        {% for order in orders %}
+        <p>
+            Order #{{ order.id }} -
+            £{{ order.order_total }} -
+            {{ order.date|date:"d M Y" }}
+        </p>
+        <ul>
+            {% for item in order.lineitems.all %}
+            <li>
+                {{ item.product.name }} -
+                Quantity: {{ item.quantity }} -
+                £{{ item.lineitem_total }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% empty %}
+        <p>You have no completed orders yet.</p>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
