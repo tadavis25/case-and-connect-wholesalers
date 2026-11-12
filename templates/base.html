@@ -14,6 +14,10 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -81,13 +85,84 @@
     {% block content %}
     {% endblock %}
 
+
     <!-- Footer -->
-    <footer class="bg-light text-center py-3 mt-5">
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
         <div class="container">
-            <p class="mb-0">
-                &copy; 2026 Case & Connect Wholesalers.
-                All rights reserved.
-            </p>
+            <div class="row g-4">
+
+                <!-- Business Information -->
+                <div class="col-12 col-md-4">
+                    <h5 class="fw-bold">CASE & CONNECT</h5>
+                    <p class="text-white-50">
+                        Wholesale tech accessories
+                    </p>
+
+                    <!-- Social Media Icons -->
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-white fs-4" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-white fs-4" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="text-white fs-4" aria-label="Linkedin">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Shop Links -->
+                <div class="col-12 col-md-4">
+                    <h6 class="fw-bold">SHOP</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="{% url 'product_list' %}" class="text-white text-decoration-none">
+                                Shop all
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'why_us' %}" class="text-white text-decoration-none">
+                                Why Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- Account Links -->
+                <div class="col-12 col-md-4">
+                    <h6 class="fw-bold">YOUR ACCOUNT</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="{% url 'account_login' %}" class="text-white text-decoration-none">
+                                Login
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'account_signup' %}" class="text-white text-decoration-none">
+                                Register
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'my_account' %}" class="text-white text-decoration-none">
+                                My account
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary my-4">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between">
+                <small>&copy; 2026 Case & Connect</small>
+                <small>Wholesale tech accessories for independent retailers</small>
+            </div>
         </div>
     </footer>
 
