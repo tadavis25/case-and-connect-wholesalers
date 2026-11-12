@@ -1,41 +1,52 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container my-5">
+<div class="container my-5 checkout-page">
     <h1 class="mb-4">Checkout</h1>
 
     <div class="row">
-        <div class="col-md-8">
-            <h2 class="h4 mb-3">Delivery Details</h2>
+        <div class="col-md-8 checkout-card">
+            <div class="checkout-card">
+                <h2 class="h4 mb-3">Delivery Details</h2>
 
-            <form method="POST" id="payment-form">
-                {% csrf_token %}
-                {{ form.as_p }}
+                <form method="POST" id="payment-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
 
-                <div id="payment-element" class="mb-3"></div>
+                    <div id="payment-element" class="mb-3"></div>
 
-                <div id="payment-message" class="text-danger"></div>
+                    <div id="payment-message" class="text-danger"></div>
 
-                <button type="submit" class="btn btn-primary">
-                    Continue to Payment
-                </button>
-            </form>
+                    <button type="submit" class="btn btn-dark">
+                        Continue to Payment
+                    </button>
+                </form>
+            </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 checkout-card">
             <h2 class="h4 mb-3">Order Summary</h2>
 
             {% if bag_items %}
             {% for item in bag_items %}
             <div class="mb-3">
-                <h3 class="h6">{{ item.product.name }}</h3>
-                <p>Quantity: {{ item.quantity }}</p>
-                <p>Subtotal: £{{ item.subtotal|floatformat:2 }}</p>
+                <div class="d-flex justify-content-between gap-3">
+                    <h3 class="h6">{{ item.product.name }}</h3>
+                    <span>£{{ item.subtotal|floatformat:2 }}</span>
+                </div>
+                <p class="text-muted small mb-2">
+                    Quantity: {{ item.quantity }}
+                </p>
             </div>
             <hr>
             {% endfor %}
 
-            <h4>Total: £{{ total|floatformat:2 }}</h4>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <h4 class="h6 fw-bold mb-0">Order Total</h4>
+                <span class="fw-bold fs-5">
+                    £{{ total|floatformat:2 }}
+                </span>
+            </div>
             {% else %}
             <p>Your shopping bag is empty.</p>
             {% endif %}

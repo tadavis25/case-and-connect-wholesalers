@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block title %}Sign Out | Case & Connect{% endblock %}
+
+{% block content %}
+<div class="container my-5 logout-page">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm border-0 p-4 text-center">
+                <h2 class="fw-bold mb-3">Sign Out</h2>
+
+                <p class="text-muted mb-4">
+                    Are you sure you want to sign out
+                    of your trade account?
+                </p>
+
+                <form method="POST" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    {{ redirect_field }}
+
+                    <button type="submit" class="btn btn-dark w-100">
+                        Yes, Sign Out
+                    </button>
+                </form>
+
+                <a href="{% url 'home' %}" class="btn btn-outline-secondary mt-3">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
