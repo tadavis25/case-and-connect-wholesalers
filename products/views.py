@@ -4,6 +4,12 @@ from .models import Product
 
 def product_list(request):
     products = Product.objects.all()
+
+    category = request.GET.get('category')
+
+    if category:
+        products = products.filter(category__name=category)
+
     return render(request, 'products/product_list.html', {
         'products': products
     })

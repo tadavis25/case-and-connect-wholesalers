@@ -79,80 +79,88 @@ Home | Case & Connect Wholesalers
 
     <div class="row g-3">
         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="category-card">
+            <a href="/products/?category=Phone%20Cases" class="category-card d-block text-decoration-none text-dark">
                 <div class="category-icon">📱</div>
                 <div class="category-title">Phone Cases →</div>
-            </div>
+            </a>
         </div>
 
         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="category-card">
+            <a href="/products/?category=Charging%20Accessories"
+                class="category-card d-block text-decoration-none text-dark">
                 <div class="category-icon">⚡</div>
                 <div class="category-title">Charging Accessories →</div>
-            </div>
+            </a>
         </div>
 
         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="category-card">
+            <a href="/products/?category=Phone%20Grips%20%26%20Stands"
+                class="category-card d-block text-decoration-none text-dark">
                 <div class="category-icon">📱</div>
                 <div class="category-title">Phone Grips & Stands →</div>
-            </div>
+            </a>
         </div>
 
         <div class="col-12 col-sm-6 col-lg-3">
-            <div class="category-card">
+            <a href="/products/?category=Tech%20Essentials"
+                class="category-card d-block text-decoration-none text-dark">
                 <div class="category-icon">📦</div>
                 <div class="category-title">Tech Essentials →</div>
+            </a>
+        </div>
+</section>
+
+<!-- Proven Sellers Section -->
+<section class="container my-5">
+    <p class="text-uppercase small fw-bold">Popular Products</p>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="display-3 fw-bold mb-0">Proven sellers</h2>
+
+        <a href="/products/" class="text-dark text-decoration-none">
+            View all &rarr;
+        </a>
+    </div>
+
+    <div class="row g-3">
+        {% for product in products %}
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="product-card h-100">
+                <div class="product-card-image">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded">
+                    {% else %}
+                    {% if product.category.name == "Phone Cases" %}
+                    <span>⭐</span>
+                    {% elif product.category.name == "Charging Accessories" %}
+                    <span>⚡</span>
+                    {% elif product.category.name == "Phone Grips & Stands" %}
+                    <span>📲</span>
+                    {% elif product.category.name == "Tech Essentials" %}
+                    <span>📦</span>
+                    {% else %}
+                    <span>📱</span>
+                    {% endif %}
+                    {% endif %}
+                </div>
+                <div class="category-title">
+                    <h3 class="h6 fw-bold">{{ product.name }}</h3>
+                    <a href="{% url 'product_detail' product.id %}" class="text-dark">
+                        View Details
+                    </a>
+                    <p class="mb-1">£{{ product.price }}</p>
+                    <p class="small mb-0">
+                        Stock: {{ product.stock }}
+                    </p>
+                    <button type="button" class="btn btn-dark mt-3">
+                        Add to Order
+                    </button>
+                </div>
             </div>
         </div>
+        {% empty %}
+        <p>No products available yet.</p>
+        {% endfor %}
     </div>
 </section>
 
-    <!-- Proven Sellers Section -->
-    <section class="container my-5">
-        <p class="text-uppercase small fw-bold">Popular Products</p>
-        <h2 class="display-3 fw-bold mb-4">Proven sellers</h2>
-
-        <div class="row g-3">
-            {% for product in products %}
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="product-card h-100">
-                    <div class="product-card-image">
-                        {% if product.image %}
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded">
-                        {% else %}
-                        {% if product.category.name == "Phone Cases" %}
-                        <span>⭐</span>
-                        {% elif product.category.name == "Charging Accessories" %}
-                        <span>⚡</span>
-                        {% elif product.category.name == "Phone Grips & Stands" %}
-                        <span>📲</span>
-                        {% elif product.category.name == "Tech Essentials" %}
-                        <span>📦</span>
-                        {% else %}
-                        <span>📱</span>
-                        {% endif %}
-                        {% endif %}
-                        </div>
-                    <div class="category-title">
-                        <h3 class="h6 fw-bold">{{ product.name }}</h3>
-                        <a href="{% url 'product_detail' product.id %}" class="text-dark">
-                            View Details
-                        </a>
-                        <p class="mb-1">£{{ product.price }}</p>
-                        <p class="small mb-0">
-                            Stock: {{ product.stock }}
-                        </p>
-                        <button type="button" class="btn btn-dark mt-3">
-                            Add to Order
-                        </button>
-                    </div>
-                </div>
-            </div>
-            {% empty %}
-            <p>No products available yet.</p>
-            {% endfor %}
-        </div>
-    </section>
-
-    {% endblock %}
+{% endblock %}
