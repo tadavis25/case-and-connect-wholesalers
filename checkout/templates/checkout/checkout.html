@@ -11,11 +11,84 @@
 
                 <form method="POST" id="payment-form">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ form.full_name }}
 
-                    <div id="payment-element" class="mb-3"></div>
+                    <div class="checkout-card mb-3">
+                        <h3 class="h5 mb-3">Contact Information</h3>
 
-                    <div id="payment-message" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.first_name.id_for_label }}" class="form-label">First Name</label>
+                                {{ form.first_name }}
+                                {{ form.first_name.errors }}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.last_name.id_for_label }}" class="form-label">Last Name</label>
+                                {{ form.last_name }}
+                                {{ form.last_name.errors }}
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Email Address</label>
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                        </div>
+                    </div>
+
+                    <div class="checkout-card mb-3">
+                        <h3 class="h5 mb-3 mt-4">Delivery Address</h3>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            {{ form.phone_number }}
+                            {{ form.phone_number.errors }}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            {{ form.address_line_1 }}
+                            {{ form.address_line_1.errors }}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Address Line 2</label>
+                            {{ form.address_line_2 }}
+                            {{ form.address_line_2.errors }}
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Town or City</label>
+                                {{ form.town_or_city }}
+                                {{ form.town_or_city.errors }}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Postcode</label>
+                                {{ form.postcode }}
+                                {{ form.postcode.errors }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Country</label>
+                                {{ form.country }}
+                                {{ form.country.errors }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-card mb-3">
+                        <h3 class="h5 mb-3">Payment Details</h3>
+                        <p class="text-muted small">
+                            Your payment information is securely processed by Stripe.
+                        </p>
+
+                        <div id="payment-element" class="mb-3"></div>
+
+                        <div id="payment-message" class="text-danger"></div>
+                    </div>
 
                     <button type="submit" class="btn btn-dark">
                         Continue to Payment
@@ -29,18 +102,27 @@
 
             {% if bag_items %}
             {% for item in bag_items %}
-            <div class="mb-3">
-                <div class="d-flex justify-content-between gap-3">
-                    <h3 class="h6">{{ item.product.name }}</h3>
-                    <span>£{{ item.subtotal|floatformat:2 }}</span>
-                </div>
-                <p class="text-muted small mb-2">
-                    Quantity: {{ item.quantity }}
-                </p>
-            </div>
-            <hr>
-            {% endfor %}
+            <div class="d-flex align-items-center gap-3 mb-3">
 
+                {% if item.product.image %}
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="rounded"
+                    style="width: 65px; height: 65px; object-fit: contain;">
+                {% endif %}
+
+                <div class="flex-grow-1">
+                    <h3 class="h6 mb-1">{{ item.product.name }}</h3>
+                    <p class="text-muted small mb-0">
+                        Quantity: {{ item.quantity }}
+                    </p>
+                </div>
+
+                <span class="fw-semibold">
+                    £{{ item.subtotal|floatformat:2 }}
+                </span>
+
+            </div>
+            {% endfor %}
+            <hr class="my-3">
             <div class="d-flex justify-content-between align-items-center mt-3">
                 <h4 class="h6 fw-bold mb-0">Order Total</h4>
                 <span class="fw-bold fs-5">

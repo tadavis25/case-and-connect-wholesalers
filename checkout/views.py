@@ -31,6 +31,8 @@ def checkout(request):
         })
 
     amount = int(total * 100)
+    if request.method == 'POST':
+        print("Form errors:", form.errors)
     if request.method == 'POST' and form.is_valid() and total > 0:
         existing_order_id = request.session.get('pending_order_id')
         if existing_order_id:

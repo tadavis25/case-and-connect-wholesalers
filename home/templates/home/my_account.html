@@ -2,35 +2,44 @@
 
 {% block content %}
 <div class="container my-5">
-    <h1 class="mb-4">My Account</h1>
+    <p class="text-uppercase small fw-semibold mb-2">
+        Trade Account
+    </p>
 
-    <div class="card p-4">
-        <h2 class="h4">Welcome, {{ user.username }}!</h2>
-        <p>Manage your Case & Connect Wholesalers account here.</p>
+    <h1 class="display-4 fw-bold mb-4">My Account</h1>
 
-        <h3 class="h5 mt-3">Account Details</h3>
-        <p><strong>Username:</strong> {{ user.username }}</p>
-        <p><strong>Email:</strong> {{ user.email }}</p>
-        <h3 class="h5 mt-4">Order History</h3>
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="card p-4">
+                <h2 class="h5 mb-4">Recent Orders</h2>
 
-        {% for order in orders %}
-        <p>
-            Order #{{ order.id }} -
-            £{{ order.order_total }} -
-            {{ order.date|date:"d M Y" }}
-        </p>
-        <ul>
-            {% for item in order.lineitems.all %}
-            <li>
-                {{ item.product.name }} -
-                Quantity: {{ item.quantity }} -
-                £{{ item.lineitem_total }}
-            </li>
-            {% endfor %}
-        </ul>
-        {% empty %}
-        <p>You have no completed orders yet.</p>
-        {% endfor %}
+                {% for order in orders %}
+                <p>
+                    Order #{{ order.id }} -
+                    £{{ order.order_total }} -
+                    {{ order.date|date:"d M Y" }}
+                </p>
+                <ul>
+                    {% for item in order.lineitems.all %}
+                    <li>
+                        {{ item.product.name }} -
+                        Quantity: {{ item.quantity }} -
+                        £{{ item.lineitem_total }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% empty %}
+                <p>You have no completed orders yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+      
+        <div class="col-md-4">
+            <div class="card p-4">
+                <h2 class="h5 mb-3">Account Details</h2>
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+            </div>
+        </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
