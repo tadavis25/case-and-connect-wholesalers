@@ -13,7 +13,8 @@ class CheckoutTests(TestCase):
         from .forms import OrderForm
 
         form_data = {
-            'full_name': 'Test Customer',
+            'first_name': 'Test',
+            'last_name': 'Customer',
             'email': 'test@example.com',
             'phone_number': '07123456789',
             'address_line_1': '10 Test Street',
