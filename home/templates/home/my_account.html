@@ -6,7 +6,13 @@
         Trade Account
     </p>
 
-    <h1 class="display-4 fw-bold mb-4">My Account</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-4 fw-bold mb-0">My Account</h1>
+
+        <a href="{% url 'account_logout' %}" class="text-decoration-underline">
+            Logout
+        </a>
+    </div>
 
     <div class="row g-4">
         <div class="col-md-8">
@@ -28,17 +34,42 @@
                     </li>
                     {% endfor %}
                 </ul>
+                <hr class="my-3">
                 {% empty %}
-                <p>You have no completed orders yet.</p>
+                <p class="text-muted mb-4">
+                    You have no recent orders.
+                </p>
+
+                <a href="/products/" class="btn btn-dark d-inline-block align-self-start">
+                    Start Shopping
+                </a>
                 {% endfor %}
             </div>
         </div>
-      
+
         <div class="col-md-4">
             <div class="card p-4">
-                <h2 class="h5 mb-3">Account Details</h2>
-                <p><strong>Username:</strong> {{ user.username }}</p>
+                <h2 class="h5 mb-4">Account Details</h2>
+                <p><strong>Business:</strong> {{ user.username }}</p>
                 <p><strong>Email:</strong> {{ user.email }}</p>
+                <p class="mb-1"><strong>Delivery Address:</strong></p>
+                {% if profile.address_line_1 %}
+                <p class="text-muted">
+                    {{ profile.address_line_1 }}<br>
+                    {% if profile.address_line_2 %}
+                    {{ profile.address_line_2 }}<br>
+                    {% endif %}
+                    {{ profile.town_or_city }}<br>
+                    {{ profile.postcode }}<br>
+                    {{ profile.country }}
+                </p>
+                {% else %}
+                <p class="text-muted">No saved delivery address.</p>
+                {% endif %}
+
+                <a href="{% url 'edit_details' %}" class="text-decoration-underline">
+                    Edit Details
+                </a>
             </div>
         </div>
     </div>

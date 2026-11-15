@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from products.models import Product
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from home.models import CustomerProfile
 
 
 def checkout(request):
@@ -13,7 +14,30 @@ def checkout(request):
         form = OrderForm(request.POST)
 
     else:
-        form = OrderForm()
+        initial_data = {}
+
+        if request.user.is_authenticated:
+            profile = CustomerProfile.objects.filter(
+                user=request.user
+            ).first()
+
+            initial_data = {
+                'first_name': request.user.first_name,
+                'last_name': request.user.last_name,
+                'email': request.user.email,
+            }
+
+            if profile:
+                initial_data.update({
+                    'phone_number': profile.phone_number,
+                    'address_line_1': profile.address_line_1,
+                    'address_line_2': profile.address_line_2,
+                    'town_or_city': profile.town_or_city,
+                    'postcode': profile.postcode,
+                    'country': profile.country,
+                })
+
+        form = OrderForm(initial=initial_data)
 
     bag = request.session.get('bag', {})
     bag_items = []
@@ -31,9 +55,14 @@ def checkout(request):
         })
 
     amount = int(total * 100)
+    print("Checkout total:", total)
     if request.method == 'POST':
         print("Form errors:", form.errors)
+        print("Form is valid:", form.is_valid())
+        print("Non-field errors:", form.non_field_errors())
+        print("Form data:", list(form.data.keys()))
     if request.method == 'POST' and form.is_valid() and total > 0:
+        print("Checkout validation passed.")
         existing_order_id = request.session.get('pending_order_id')
         if existing_order_id:
             order = Order.objects.filter(
@@ -53,24 +82,48 @@ def checkout(request):
 
             for product_id, quantity in bag.items():
                 product = get_object_or_404(Product, pk=product_id)
+                OrderLineItem.objects.create(
+                    order=order,
+                    product=product,
+                    quantity=quantity
+                )
+        else:
+            order.order_total = total
+            order.save()
+            order.lineitems.all().delete()
+            for product_id, quantity in bag.items():
+                product = get_object_or_404(Product, pk=product_id)
+                OrderLineItem.objects.create(
+                    order=order,
+                    product=product,
+                    quantity=quantity
+                )
 
-            OrderLineItem.objects.create(
-                order=order,
-                product=product,
-                quantity=quantity
-            )
     else:
         order = None
 
     intent = None
 
     if amount > 0 and request.method == 'POST' and form.is_valid():
-        intent = stripe.PaymentIntent.create(
-            idempotency_key=f"checkout-order-{order.id}",
-            amount=amount,
-            currency='gbp',
-            automatic_payment_methods={'enabled': True},
-        )
+        if order and order.stripe_payment_intent_id:
+            intent = stripe.PaymentIntent.retrieve(
+                order.stripe_payment_intent_id
+            )
+            if (
+                intent.status == 'requires_payment_method'
+                and intent.amount != amount
+            ):
+                intent = stripe.PaymentIntent.modify(
+                    intent.id,
+                    amount=amount,
+                )
+        else:
+            intent = stripe.PaymentIntent.create(
+                idempotency_key=f"checkout-order-{order.id}",
+                amount=amount,
+                currency='gbp',
+                automatic_payment_methods={'enabled': True},
+            )
 
         if order is not None and intent is not None:
             order.stripe_payment_intent_id = intent.id

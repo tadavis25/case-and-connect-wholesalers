@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4">Edit Account Details</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <h2 class="h5 mt-4 mb-3">Delivery Address</h2>
+
+        {{ profile_form.as_p }}
+
+        <button type="submit" class="btn btn-dark">
+            Save Changes
+        </button>
+    </form>
+</div>
+{% endblock %}
