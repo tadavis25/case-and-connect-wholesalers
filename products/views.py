@@ -10,6 +10,11 @@ def product_list(request):
     if category:
         products = products.filter(category__name=category)
 
+    search_query = request.GET.get('q')
+
+    if search_query:
+        products = products.filter(name__icontains=search_query)
+
     return render(request, 'products/product_list.html', {
         'products': products
     })

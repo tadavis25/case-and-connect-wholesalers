@@ -7,6 +7,33 @@ Products | Case & Connect Wholesalers
 {% block content %}
 <div class="container mt-5">
     <h1>Shop All</h1>
+    <div class="mb-4 d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{% url 'product_list' %}" class="btn btn-dark">
+                All
+            </a>
+
+            <a href="?category=Phone%20Cases" class="btn btn-outline-dark">
+                Phone Cases
+            </a>
+
+            <a href="?category=Charging%20Accessories" class="btn btn-outline-dark">
+                Charging Accessories
+            </a>
+
+            <a href="?category=Phone%20Grips%20%26%20Stands" class="btn btn-outline-dark">
+                Phone Grips &amp; Stands
+            </a>
+
+            <a href="?category=Tech%20Essentials" class="btn btn-outline-dark">
+                Tech Essentials
+            </a>
+        </div>
+        <form method="GET" action="{% url 'product_list' %}" class="ms-lg-auto">
+            <input type="search" name="q" class="form-control" placeholder="Search products"
+                aria-label="Search products" style="width: 220px;">
+        </form>
+    </div>
 
     <div class="row g-4">
 
