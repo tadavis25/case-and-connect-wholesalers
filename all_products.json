@@ -1,0 +1,446 @@
+[
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "name": "Silicone Phone Case",
+    "description": "Clear protective silicone phone case.",
+    "price": "5.99",
+    "stock": 100,
+    "category": 1,
+    "image": "products/clear-silicone-case.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "name": "20W USB-C Fast Charger",
+    "description": "Compact 20W USB-C fast charger, ideal for everyday charging.",
+    "price": "8.99",
+    "stock": 75,
+    "category": 2,
+    "image": "products/black-charger-set.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "Case & Connect Grip & Stand",
+    "description": "Magnetic phone grip and stand for comfortable everyday use.",
+    "price": "6.99",
+    "stock": 60,
+    "category": 3,
+    "image": "products/camouflage-grip-and-stand.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "name": "3-in-1 Screen Cleaning Kit",
+    "description": "Antibacterial spray, microfiber cloths, and precision cleaning pen cleaning kit for phones, tablets and other screens.",
+    "price": "6.99",
+    "stock": 80,
+    "category": 4,
+    "image": "products/3-in-1-kit.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "name": "25W USB Black Charger",
+    "description": "Case & Connect 25W USB fast charging plug only no cord.",
+    "price": "10.99",
+    "stock": 85,
+    "category": 2,
+    "image": "products/black-charger.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "name": "Black Durable Case",
+    "description": "Very strong and sturdy case.",
+    "price": "5.99",
+    "stock": 90,
+    "category": 1,
+    "image": "products/black-durable-case.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "USB Charger Cord",
+    "description": "Grey charger cord for fast charging 100W.",
+    "price": "5.99",
+    "stock": 90,
+    "category": 2,
+    "image": "products/grey-charger-cord.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "name": "Black Phone Grip",
+    "description": "A small accessory that attaches to the back of the smartphone which gives a comfortable one-handed grip and safety.",
+    "price": "4.99",
+    "stock": 75,
+    "category": 3,
+    "image": "products/black-phone-grip.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "name": "Black Phone Grip & Matching Stand",
+    "description": "A multi-functional mobile accessory designed to provide a secure, one-handed hold while doubling as a hands-free kickstand for portrait or landscape viewing.",
+    "price": "10.99",
+    "stock": 75,
+    "category": 3,
+    "image": "products/black-phonegrip-and-stand.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "name": "Black USB Hubs",
+    "description": "An easy way to expand the number of available USB ports on your computer.",
+    "price": "15.99",
+    "stock": 65,
+    "category": 2,
+    "image": "products/black-usb-hub.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "name": "Mobile Cleaning Kit With Wipes",
+    "description": "Antibacterial spray, microfiber cloths, wipes and dust brush to help keep your phone clean and sanitized.",
+    "price": "6.99",
+    "stock": 85,
+    "category": 4,
+    "image": "products/blue-bottle-kit-wipes.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "name": "Blue Silicone Case",
+    "description": "Clear blue protective silicone phone case.",
+    "price": "5.99",
+    "stock": 85,
+    "category": 1,
+    "image": "products/blue-silicone-case.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "name": "British Flag matching phone grip & phone stand",
+    "description": "Matching British Flag print phone grip and phone stand that brings a vibrant, patriotic aesthetic to your smartphone or tablet.",
+    "price": "15.99",
+    "stock": 65,
+    "category": 3,
+    "image": "products/britishflag-phonegrip-and-phonestand.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "name": "Cleaning Kit with pink cloth",
+    "description": "N/A",
+    "price": "6.99",
+    "stock": 85,
+    "category": 4,
+    "image": "products/pink-cleaning-kit.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "name": "Pink Silcone Phone Case",
+    "description": "N/A",
+    "price": "6.99",
+    "stock": 85,
+    "category": 1,
+    "image": "products/pink-silicone-case_Jn9aWyv.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "name": "White USB Hubs",
+    "description": "n/a",
+    "price": "15.99",
+    "stock": 75,
+    "category": 2,
+    "image": "products/white-usb-hub.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 17,
+  "fields": {
+    "name": "Grey USB Hubs",
+    "description": "n/a",
+    "price": "15.00",
+    "stock": 75,
+    "category": 2,
+    "image": "products/grey-usb-hub.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 18,
+  "fields": {
+    "name": "White Charger Set",
+    "description": "n/a",
+    "price": "8.99",
+    "stock": 85,
+    "category": 2,
+    "image": "products/white-charger-set.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 19,
+  "fields": {
+    "name": "White Charger Plug",
+    "description": "n/a",
+    "price": "6.99",
+    "stock": 85,
+    "category": 2,
+    "image": "products/white-charger.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 20,
+  "fields": {
+    "name": "Red phone grip & stand",
+    "description": "n/a",
+    "price": "13.99",
+    "stock": 65,
+    "category": 3,
+    "image": "products/red-phonegrip-and-stand.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 21,
+  "fields": {
+    "name": "White Charger Cord",
+    "description": "n/a",
+    "price": "5.99",
+    "stock": 85,
+    "category": 2,
+    "image": "products/white-charger-cord.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 22,
+  "fields": {
+    "name": "Clear Black Silicone Case",
+    "description": "n/a",
+    "price": "5.99",
+    "stock": 85,
+    "category": 1,
+    "image": "products/clear-black-slicone-case.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 23,
+  "fields": {
+    "name": "Pride Case",
+    "description": "n/a",
+    "price": "6.99",
+    "stock": 65,
+    "category": 1,
+    "image": "products/pride-silicone-case.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 24,
+  "fields": {
+    "name": "Colourful Phone Grip",
+    "description": "n/a",
+    "price": "5.99",
+    "stock": 75,
+    "category": 3,
+    "image": "products/colourful-phone-grip.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 25,
+  "fields": {
+    "name": "Red Phone Stand",
+    "description": "n/a",
+    "price": "10.99",
+    "stock": 75,
+    "category": 3,
+    "image": "products/red-phone-stand.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 26,
+  "fields": {
+    "name": "Camouflage Durable Case",
+    "description": "n/a",
+    "price": "6.99",
+    "stock": 85,
+    "category": 1,
+    "image": "products/camouflage-durable-case.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 27,
+  "fields": {
+    "name": "Pink Charger Set",
+    "description": "n/a",
+    "price": "8.99",
+    "stock": 85,
+    "category": 2,
+    "image": "products/pink-charger-set.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 28,
+  "fields": {
+    "name": "British Style Case",
+    "description": "n/a",
+    "price": "5.99",
+    "stock": 65,
+    "category": 1,
+    "image": "products/british-style-case.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 29,
+  "fields": {
+    "name": "Pink Charger Cord",
+    "description": "n/a",
+    "price": "5.99",
+    "stock": 65,
+    "category": 2,
+    "image": "products/pink-charger-cord.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 30,
+  "fields": {
+    "name": "Royal Blue Stand & Grip",
+    "description": "n/a",
+    "price": "6.99",
+    "stock": 85,
+    "category": 3,
+    "image": "products/royal-blue-grip-and-stand.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 31,
+  "fields": {
+    "name": "Grey Charger Plug",
+    "description": "n/a",
+    "price": "6.99",
+    "stock": 75,
+    "category": null,
+    "image": "products/grey-charger.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 32,
+  "fields": {
+    "name": "Pink Charger Plug",
+    "description": "n/a",
+    "price": "6.99",
+    "stock": 75,
+    "category": 2,
+    "image": "products/pink-charger.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 33,
+  "fields": {
+    "name": "White Durable Case",
+    "description": "n/a",
+    "price": "5.99",
+    "stock": 95,
+    "category": 1,
+    "image": "products/white-durable-case.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 34,
+  "fields": {
+    "name": "Crystal Phone Grip",
+    "description": "n/a",
+    "price": "9.99",
+    "stock": 65,
+    "category": 3,
+    "image": "products/crystal-phonegrip.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 35,
+  "fields": {
+    "name": "Black Charging Cord",
+    "description": "n/a",
+    "price": "5.99",
+    "stock": 85,
+    "category": 2,
+    "image": "products/black-phone-cord.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 36,
+  "fields": {
+    "name": "Camouflage Phone Grip",
+    "description": "n/a",
+    "price": "6.99",
+    "stock": 85,
+    "category": 3,
+    "image": "products/camouflage-phonegrip.webp"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 37,
+  "fields": {
+    "name": "Flower Phone Grip & Stand",
+    "description": "n/a",
+    "price": "10.99",
+    "stock": 75,
+    "category": 3,
+    "image": "products/flower-grip-and-stand.webp"
+  }
+}
+]
