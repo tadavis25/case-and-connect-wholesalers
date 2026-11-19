@@ -11,7 +11,7 @@ products_data.json
 # Local product data and update scripts
 # all_products.json
 updated_products.json
-# product_updates.json
+product_updates.json
 check_products.py
 live_products.json
-# update_live_products.py
+update_live_products.py

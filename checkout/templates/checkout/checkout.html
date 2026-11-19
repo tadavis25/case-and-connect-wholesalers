@@ -13,7 +13,7 @@
         <div class="col-md-8">
             <div class="checkout-card">
 
-                <form method="POST" id="payment-form">
+                <form method="POST" id="payment-form" action="#payment-section">
                     {% csrf_token %}
                     {{ form.full_name }}
 
@@ -83,7 +83,7 @@
                         </div>
                     </div>
 
-                    <div class="checkout-card mb-3">
+                    <div id="payment-section" class="checkout-card mb-3">
                         <h3 class="h5 mb-3">Payment Details</h3>
                         <p class="text-muted small">
                             Your payment information is securely processed by Stripe.
@@ -158,6 +158,11 @@
 
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
+            event.stopPropagation();
+            document.getElementById('payment-section').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+      });
             const submitButton = form.querySelector('button[type="submit"]');
             submitButton.disabled = true;
 
@@ -174,6 +179,10 @@
             if (error) {
                 message.textContent = error.message;
                 submitButton.disabled = false;
+                document.getElementById('payment-section').scrollIntoView({
+                     behavior: 'smooth',
+                     block: 'start'
+            });
             }
         });
     }
