@@ -6,39 +6,52 @@
 
     {% if bag_items %}
     {% for item in bag_items %}
-    <div class="mb-4">
-        <h3>{{ item.product.name }}</h3>
-        <p>Price: £{{ item.product.price }}</p>
-        <form method="POST" action="{% url 'update_bag' item.product.id %}">
-            {% csrf_token %}
+    <div class="card shopping-bag-card shadow-sm border-0 rounded-3 p-4 mb-4">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                {% if item.product.image %}
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded mb-3"
+                    style="max-width: 180px;">
+                {% endif %}
+            </div>
+            <div class="col-md-9">
+                <h3>{{ item.product.name }}</h3>
+                <p>Price: £{{ item.product.price }}</p>
+                <form method="POST" action="{% url 'update_bag' item.product.id %}">
+                    {% csrf_token %}
 
-            <label for="quantity-{{ item.product.id }}">Quantity:</label>
+                    <label for="quantity-{{ item.product.id }}">Quantity:</label>
 
-            <input type="number" id="quantity-{{ item.product.id }}" name="quantity" value="{{ item.quantity }}" min="1"
-                max="{{ item.product.stock }}" class="form-control w-auto d-inline-block" required>
+                    <input type="number" id="quantity-{{ item.product.id }}" name="quantity" value="{{ item.quantity }}"
+                        min="10" max="{{ item.product.stock }}" class="form-control w-auto d-inline-block" required>
 
-            <button type="submit" class="btn btn-outline-primary btn-sm">
-                Update
-            </button>
-        </form>
-        <p>Subtotal: £{{ item.subtotal }}</p>
-        <form method="POST" action="{% url 'remove_from_bag' item.product.id %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-outline-danger btn-sm mt-2">
-                Remove
-            </button>
-        </form>
+                    <button type="submit" class="btn btn-dark btn-sm">
+                        Update
+                    </button>
+                </form>
+                <p>Subtotal: £{{ item.subtotal }}</p>
+                <form method="POST" action="{% url 'remove_from_bag' item.product.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm mt-2">
+                        Remove
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
     {% endfor %}
 
     <hr>
     <h3>Total: £{{ total }}</h3>
-    <a href="{% url 'checkout' %}" class="btn btn-success mt-3">
+    <a href="{% url 'checkout' %}" class="btn btn-primary mt-3">
         Proceed to Checkout
     </a>
 
     {% else %}
-    <p>Your shopping bag is currently empty.</p>
+    <div class="card shopping-bag-card shadow-sm border-0 rounded-3 p-4 mb-4 text-center">
+        <h3>Your shopping bag is empty</h3>
+        <p class="mb-0">Browse our products and start your wholesale order.</p>
+    </div>
     {% endif %}
 
     <a href="{% url 'product_list' %}" class="btn btn-dark mt-3">

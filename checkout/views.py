@@ -45,10 +45,14 @@ def checkout(request):
 
     for product_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=product_id)
-        subtotal = product.price * quantity
-        total += subtotal
 
-        bag_items.append({
+    if not isinstance(quantity, int) or not 10 <= quantity <= product.stock:
+        return redirect('view_bag')
+
+    subtotal = product.price * quantity
+    total += subtotal
+
+    bag_items.append({
             'product': product,
             'quantity': quantity,
             'subtotal': subtotal,

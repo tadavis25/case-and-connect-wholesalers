@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container my-5 text-center">
+<div class="container my-5 text-center checkout-page">
+    <div class="checkout-card">
     <h1>Payment Status</h1>
 
     {% if payment_confirmed %}
-    <p class="text-success">
+    <p class="text-dark">
         Payment successful! Thank you for your order.
     </p>
     {% else %}
@@ -15,8 +16,9 @@
     </p>
     {% endif %}
 
-    <a href="{% url 'product_list' %}" class="btn btn-primary mt-3">
+    <a href="{% url 'product_list' %}" class="btn btn-dark mt-3">
         Continue Shopping
     </a>
+  </div>
 </div>
 {% endblock %}

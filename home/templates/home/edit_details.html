@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container my-5">
+<div class="edit-details-background">
+<div class="container my-5 edit-details-page" style="max-width: 600px;">
     <h1 class="mb-4">Edit Account Details</h1>
     <form method="POST">
         {% csrf_token %}
@@ -15,5 +16,6 @@
             Save Changes
         </button>
     </form>
+  </div>
 </div>
 {% endblock %}

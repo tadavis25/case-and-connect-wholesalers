@@ -119,10 +119,19 @@
     justify-content: center;
 }
 
+
 .category-card {
-    border: 1px solid #d5d5d5;
+    border: 3px solid #b8c5c9;
     background-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
 
 .category-icon {
     background-color: #e8e8e8;
@@ -230,14 +239,14 @@
 /* Checkout page background */
 .checkout-page {
     background-color: #ebeded;
-    padding: 40px 25px;
+    padding: 40px 50px;
     border-radius: 12px;
 }
 
 /* Checkout white cards */
 .checkout-card {
-    background-color: #ffffff;
-    padding: 30px;
+    background-color: #D6EAF8;
+    padding: 20px;
     border: 1px solid #dee2e6;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -256,3 +265,95 @@
     border-radius: 6px;
     box-sizing: border-box;
 }
+
+/* Payment details section */
+.payment-details-card {
+    background-color: #ffffff;
+}
+
+/* Edit Account Details page */
+.edit-details-page {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+/* Sage green background for Edit Account Details */
+.edit-details-background {
+    background-color: #D6EAF8;
+    padding: 30px 15px;
+}
+
+.my-account-page {
+    background-color: #D6EAF8;
+}
+
+/* Why Us page */
+.why-us-page {
+    background-color: #D6EAF8;
+}
+
+.shop-page {
+    background-color: #D6EAF8;
+    padding: 30px 0 50px;
+}
+
+/* Highlight the selected product category */
+.category-active {
+    background-color: #D6EAF8 !important;
+    border-color: #6b8f71 !important;
+    color: #000000 !important;
+}
+
+/* Sign Out Page */
+.logout-page {
+    background-color: #D6EAF8;
+    border-radius: 12px;
+    padding: 40px 20px;
+}
+
+/* Login page sage green background */
+.login-page {
+    background-color: #D6EAF8;
+}
+
+@media (max-width: 576px) {
+    .login-page {
+        padding: 20px 10px;
+    }
+}
+
+/* Login page Remember Me checkbox */
+.login-page form p:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Sign Up page */
+.signup-page {
+    background-color: #D6EAF8;
+    border-radius: 12px;
+    padding: 40px 20px;
+}
+
+/* Smaller password requirements on mobile */
+@media (max-width: 576px) {
+    .signup-page ul {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+}
+
+/* Product Details Page */
+.product-detail-page {
+    background-color: #D6EAF8;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+/* Shopping Bag Page */
+.shopping-bag-card {
+    background-color: #D6EAF8;
+}
+

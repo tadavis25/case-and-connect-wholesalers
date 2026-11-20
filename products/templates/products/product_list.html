@@ -5,58 +5,60 @@ Products | Case & Connect Wholesalers
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1>Shop All</h1>
-    <div class="mb-4 d-flex flex-wrap align-items-center justify-content-between gap-2">
-        <div class="d-flex flex-wrap gap-2">
-            <a href="{% url 'product_list' %}" class="btn btn-dark">
-                All
-            </a>
+<div class="shop-page">
+    <div class="container mt-5">
+        <h1>Shop All</h1>
+        <div class="mb-4 d-flex flex-wrap align-items-center justify-content-between gap-2">
+            <div class="d-flex flex-wrap gap-2">
+                <a href="{% url 'product_list' %}" class="btn btn-dark">
+                    All
+                </a>
 
-            <a href="?category=Phone%20Cases" class="btn btn-outline-dark">
-                Phone Cases
-            </a>
+                <a href="?category=Phone%20Cases" class="btn btn-dark {% if request.GET.category == 'Phone Cases' %}category-active{% endif %}">
+                    Phone Cases
+                </a>
 
-            <a href="?category=Charging%20Accessories" class="btn btn-outline-dark">
-                Charging Accessories
-            </a>
+                <a href="?category=Charging%20Accessories" class="btn btn-dark {% if request.GET.category == 'Charging Accessories' %}category-active{% endif %}">
+                    Charging Accessories
+                </a>
 
-            <a href="?category=Phone%20Grips%20%26%20Stands" class="btn btn-outline-dark">
-                Phone Grips &amp; Stands
-            </a>
+                <a href="?category=Phone%20Grips%20%26%20Stands" class="btn btn-dark {% if request.GET.category == 'Phone Grips & Stands' %}category-active{% endif %}">
+                    Phone Grips &amp; Stands
+                </a>
 
-            <a href="?category=Tech%20Essentials" class="btn btn-outline-dark">
-                Tech Essentials
-            </a>
+                <a href="?category=Tech%20Essentials" class="btn btn-dark {% if request.GET.category == 'Tech Essentials' %}category-active{% endif %}">
+                    Tech Essentials
+                </a>
+            </div>
+            <form method="GET" action="{% url 'product_list' %}" class="ms-lg-auto">
+                <input type="search" name="q" class="form-control" placeholder="Search products"
+                    aria-label="Search products" style="width: 220px;">
+            </form>
         </div>
-        <form method="GET" action="{% url 'product_list' %}" class="ms-lg-auto">
-            <input type="search" name="q" class="form-control" placeholder="Search products"
-                aria-label="Search products" style="width: 220px;">
-        </form>
-    </div>
 
-    <div class="row g-4">
+        <div class="row g-4">
 
-        {% for product in products %}
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="card h-100">
-                {% if product.image %}
-                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                {% endif %}
-                <div class="card-body">
-                    <h2 class="card-title">{{ product.name }}</h2>
-                    <p class="card-text">{{ product.description }}</p>
-                    <p>Price: £{{ product.price }}</p>
-                    <p>Stock: {{ product.stock }}</p>
-                    <a href="{% url 'product_detail' product.id %}" class="text-dark">
-                        View Details
-                    </a>
+            {% for product in products %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h2 class="card-title">{{ product.name }}</h2>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p>Price: £{{ product.price }}</p>
+                        <p>Stock: {{ product.stock }}</p>
+                        <a href="{% url 'product_detail' product.id %}" class="text-dark">
+                            View Details
+                        </a>
+                    </div>
                 </div>
             </div>
+            {% empty %}
+            <p>No products available yet.</p>
+            {% endfor %}
         </div>
-        {% empty %}
-        <p>No products available yet.</p>
-        {% endfor %}
     </div>
 </div>
-{% endblock %}
+    {% endblock %}

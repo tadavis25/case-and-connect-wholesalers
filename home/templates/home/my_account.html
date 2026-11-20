@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container my-5">
+<div class="my-account-page">
+    <div class="container py-5">
     <p class="text-uppercase small fw-semibold mb-2">
         Trade Account
     </p>
@@ -34,7 +35,9 @@
                     </li>
                     {% endfor %}
                 </ul>
+                {% if not forloop.last %}
                 <hr class="my-3">
+                {% endif %}
                 {% empty %}
                 <p class="text-muted mb-4">
                     You have no recent orders.
@@ -73,4 +76,5 @@
             </div>
         </div>
     </div>
+</div>
     {% endblock %}

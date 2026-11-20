@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container my-5">
+<div class="container my-5 product-detail-page">
     <div class="row g-4">
         <div class="col-md-6">
             <div class="bg-light p-4 text-center">
@@ -22,15 +22,19 @@
 
             <p>Stock available: {{ product.stock }}</p>
 
-            <div class="mb-3">
-                <label for="quantity" class="form-label">Quantity</label>
-                <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ product.stock }}"
-                    class="form-control" style="max-width: 120px;">
-            </div>
-
-            <form action="{% url 'add_to_bag' product.id %}" method="POST">
+            <form method="post" action="{% url 'add_to_bag' product.id %}">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-dark">
+
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" value="10" min="10" max="{{ product.stock }}"
+                        class="form-control" style="max-width: 120px;">
+                    <small class="text-muted d-block mt-2">
+                        Minimum order: 10 units per product
+                    </small>
+                </div>
+
+                <button type="submit" class="btn btn-dark px-4 py-2">
                     Add to Order
                 </button>
             </form>

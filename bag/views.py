@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product
 
@@ -34,7 +35,20 @@ def add_to_bag(request, product_id):
         bag = request.session.get('bag', {})
         product_id = str(product.id)
 
-        bag[product_id] = bag.get(product_id, 0) + 1
+        try:
+            quantity = int(request.POST.get('quantity', 10))
+        except (ValueError, TypeError):
+            return redirect('view_bag')
+
+        if quantity < 10:
+            return redirect('view_bag')
+
+        current_quantity = bag.get(product_id, 0)
+
+        if current_quantity + quantity > product.stock:
+            return redirect('view_bag')
+
+        bag[product_id] = current_quantity + quantity
 
         request.session['bag'] = bag
 
@@ -66,7 +80,7 @@ def update_bag(request, product_id):
             return redirect('view_bag')
 
         if product_id in bag:
-            if 1 <= quantity <= product.stock:
+            if 10 <= quantity <= product.stock:
                 bag[product_id] = quantity
                 request.session['bag'] = bag
 
