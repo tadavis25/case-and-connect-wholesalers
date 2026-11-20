@@ -170,6 +170,7 @@ def checkout_success(request):
 
     context = {
         'payment_confirmed': payment_confirmed,
+        'order': order,
     }
 
     return render(
