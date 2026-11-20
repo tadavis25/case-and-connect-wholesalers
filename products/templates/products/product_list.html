@@ -14,19 +14,23 @@ Products | Case & Connect Wholesalers
                     All
                 </a>
 
-                <a href="?category=Phone%20Cases" class="btn btn-dark {% if request.GET.category == 'Phone Cases' %}category-active{% endif %}">
+                <a href="?category=Phone%20Cases"
+                    class="btn btn-dark {% if request.GET.category == 'Phone Cases' %}category-active{% endif %}">
                     Phone Cases
                 </a>
 
-                <a href="?category=Charging%20Accessories" class="btn btn-dark {% if request.GET.category == 'Charging Accessories' %}category-active{% endif %}">
+                <a href="?category=Charging%20Accessories"
+                    class="btn btn-dark {% if request.GET.category == 'Charging Accessories' %}category-active{% endif %}">
                     Charging Accessories
                 </a>
 
-                <a href="?category=Phone%20Grips%20%26%20Stands" class="btn btn-dark {% if request.GET.category == 'Phone Grips & Stands' %}category-active{% endif %}">
+                <a href="?category=Phone%20Grips%20%26%20Stands"
+                    class="btn btn-dark {% if request.GET.category == 'Phone Grips & Stands' %}category-active{% endif %}">
                     Phone Grips &amp; Stands
                 </a>
 
-                <a href="?category=Tech%20Essentials" class="btn btn-dark {% if request.GET.category == 'Tech Essentials' %}category-active{% endif %}">
+                <a href="?category=Tech%20Essentials"
+                    class="btn btn-dark {% if request.GET.category == 'Tech Essentials' %}category-active{% endif %}">
                     Tech Essentials
                 </a>
             </div>
@@ -56,9 +60,13 @@ Products | Case & Connect Wholesalers
                 </div>
             </div>
             {% empty %}
+            {% if request.GET.q %}
+            <p>No products found matching your search. Please try another keyword.</p>
+            {% else %}
             <p>No products available yet.</p>
+            {% endif %}
             {% endfor %}
         </div>
     </div>
 </div>
-    {% endblock %}
+{% endblock %}
