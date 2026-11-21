@@ -8,13 +8,13 @@
     {% for item in bag_items %}
     <div class="card shopping-bag-card shadow-sm border-0 rounded-3 p-4 mb-4">
         <div class="row align-items-center">
-            <div class="col-md-3">
+            <div class="col-lg-3">
                 {% if item.product.image %}
                 <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded mb-3"
                     style="max-width: 180px;">
                 {% endif %}
             </div>
-            <div class="col-md-9">
+            <div class="col-lg-9">
                 <h3>{{ item.product.name }}</h3>
                 <p>Price: £{{ item.product.price }}</p>
                 <form method="POST" action="{% url 'update_bag' item.product.id %}">

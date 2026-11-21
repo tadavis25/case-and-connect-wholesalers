@@ -343,6 +343,9 @@
         font-size: 12px;
         line-height: 1.4;
     }
+    .hero-section {
+        padding: 30px 20px;
+    }
 }
 
 /* Product Details Page */
@@ -355,5 +358,50 @@
 /* Shopping Bag Page */
 .shopping-bag-card {
     background-color: #D6EAF8;
+}
+
+/* Footer social media icon hover effect */
+footer .fa-brands {
+    transition: color 0.3s ease;
+}
+
+footer a:hover .fa-brands {
+    color: #0d6efd;
+}
+
+/* Mobile hero illustration adjustments */
+@media (max-width: 576px) {
+    .product-charger {
+        left: 0;
+        bottom: 15%;
+    }
+    .product-grip {
+        right: 0;
+        bottom: 10%;
+    }
+    .product-stage {
+        min-height: 280px;
+    }
+}
+
+/* Password visibility toggle */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+.password-wrapper button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 5px;
+    cursor: pointer;
 }
 
