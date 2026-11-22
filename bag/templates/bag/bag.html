@@ -15,7 +15,7 @@
                 {% endif %}
             </div>
             <div class="col-lg-9">
-                <h3>{{ item.product.name }}</h3>
+                <h2 class="h3">{{ item.product.name }}</h2>
                 <p>Price: £{{ item.product.price }}</p>
                 <form method="POST" action="{% url 'update_bag' item.product.id %}">
                     {% csrf_token %}
@@ -42,14 +42,14 @@
     {% endfor %}
 
     <hr>
-    <h3>Total: £{{ total }}</h3>
+    <p class="h3">Total: £{{ total }}</p>
     <a href="{% url 'checkout' %}" class="btn btn-primary mt-3">
         Proceed to Checkout
     </a>
 
     {% else %}
     <div class="card shopping-bag-card shadow-sm border-0 rounded-3 p-4 mb-4 text-center">
-        <h3>Your shopping bag is empty</h3>
+        <h2 class="h3">Your shopping bag is empty</h2>
         <p class="mb-0">Browse our products and start your wholesale order.</p>
     </div>
     {% endif %}
