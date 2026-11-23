@@ -156,7 +156,13 @@
     const stripePublicKey = "{{ stripe_public_key|escapejs }}";
     const clientSecret = "{{ client_secret|escapejs }}";
 
-    if (stripePublicKey && clientSecret) {
+    if (
+    stripePublicKey &&
+    clientSecret &&
+    clientSecret !== "None" &&
+    clientSecret.startsWith("pi_") &&
+    clientSecret.includes("_secret_")
+) {
         const stripe = Stripe(stripePublicKey);
 
         const elements = stripe.elements({
