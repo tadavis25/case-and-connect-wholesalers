@@ -44,10 +44,15 @@
         button.type = 'button';
         button.innerHTML = '<i class="fa-regular fa-eye"></i>';
         button.className = 'btn btn-sm btn-outline-secondary ms-2';
+        button.setAttribute('aria-label', 'Show password');
 
         button.addEventListener('click', function () {
             const showing = input.type === 'text';
             input.type = showing ? 'password' : 'text';
+            button.setAttribute(
+                'aria-label',
+                showing ? 'Show password' : 'Hide password'
+            );
             button.innerHTML = showing
                 ? '<i class="fa-regular fa-eye"></i>'
                 : '<i class="fa-regular fa-eye-slash"></i>';
