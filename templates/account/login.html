@@ -46,12 +46,14 @@
     document.querySelectorAll('input[type="password"]').forEach(function (input) {
         const button = document.createElement('button');
         button.type = 'button';
+        button.setAttribute('aria-label', 'Show password');
         button.innerHTML = '<i class="fa-regular fa-eye"></i>';
         button.className = 'btn btn-sm btn-outline-secondary ms-2';
 
         button.addEventListener('click', function () {
             const showing = input.type === 'text';
             input.type = showing ? 'password' : 'text';
+            button.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
             button.innerHTML = showing
                 ? '<i class="fa-regular fa-eye"></i>'
                 : '<i class="fa-regular fa-eye-slash"></i>';
