@@ -358,6 +358,7 @@
 /* Shopping Bag Page */
 .shopping-bag-card {
     background-color: #D6EAF8;
+    max-width: 800px;
 }
 
 /* Footer social media icon hover effect */
